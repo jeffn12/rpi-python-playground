@@ -1,13 +1,10 @@
 from gpiozero import LED, Button
-from time import sleep
+from signal import pause
 
 led = LED(17)
-count = 0
+button = Button(16)
 
-while count < 5:
-    print(count)
-    led.on()
-    sleep(1)
-    led.off()
-    sleep(1)
-    count += 1
+button.wait_for_press()
+print("pressed")
+
+
